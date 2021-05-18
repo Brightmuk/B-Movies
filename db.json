@@ -1,0 +1,32 @@
+{
+  "blogs": [
+    {
+      "title": "Creating a virtual environment",
+      "body": "venv (for Python 3) and virtualenv (for Python 2) allow you to manage separate package installations for different projects. They essentially allow you to create a “virtual” isolated Python installation and install packages into that virtual installation. When you switch projects, you can simply create a new virtual environment and not have to worry about breaking the packages installed in the other environments. It is always recommended to use a virtual environment while developing Python applications.\n\nTo create a virtual environment, go to your project’s directory and run venv. If you are using Python 2, replace venv with virtualenv in the below commands.",
+      "author": "Dwayne",
+      "postTime": "Thu Jan 21 2021",
+      "id": 8
+    },
+    {
+      "title": "Manifest the movie",
+      "body": "Manifest is an American supernatural drama television series, created by Jeff Rake, that premiered on September 24, 2018, on NBC. The series centers on the passengers and crew of a commercial airliner who suddenly reappear after being presumed dead for more than five years. It stars Melissa Roxburgh, Josh Dallas, Athena Karkanis, J. R. Ramirez, Luna Blaise, Jack Messina, Parveen Kaur, and Matt Long. In October 2018, NBC ordered an additional three episodes of the series, bringing the first season total up to 16 episodes.\n\nIn April 2019, NBC renewed the series for a second season, which premiered on January 6, 2020. In June 2020, the series was renewed for a third season which is set to premiere in 2021",
+      "author": "Dwayne",
+      "postTime": "Fri Jan 22 2021",
+      "id": 9
+    },
+    {
+      "title": "Premise",
+      "body": "Montego Air Flight 828 from Jamaica to New York City experiences a brief period of severe turbulence. When they land, the passengers and crew learn from NSA director Robert Vance that over five and a half years have passed while they were in the air, during which time they were presumed dead. As they reintegrate themselves into present-day society, the passengers begin to face the fact that their lives—and loved ones—are not the same as they were before, while they also begin to experience guiding voices and visions representing events yet to occur.",
+      "author": "Celestine",
+      "postTime": "Fri Jan 22 2021",
+      "id": 10
+    },
+    {
+      "title": "eeve",
+      "body": "cecever",
+      "author": "Bright",
+      "postTime": "Fri Jan 22 2021",
+      "id": 11
+    }
+  ]
+}
