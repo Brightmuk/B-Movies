@@ -7,7 +7,7 @@ const Nav= ()=>{
     return (
         <div class="navbar">
             <div class="nav-logo">B Movies</div>
-            <Search/>
+           
             <div></div>
         </div>
     )

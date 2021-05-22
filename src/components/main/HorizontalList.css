@@ -1,0 +1,18 @@
+.horizontal-container{
+  width:100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.movies{
+  padding-top:100px
+}
+.arrows{
+  color:rgba(255, 246, 214, 1)
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}

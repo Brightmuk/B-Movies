@@ -1,0 +1,23 @@
+.search-bar{
+    width:100%;
+    margin-top:10%;
+  
+    justify-content: center;
+    display: flex;
+}
+
+input{
+    width:60%;
+    background-color: rgba(47, 46, 46, 1);
+    border-radius:50px;
+    border:none;
+    width:60%;
+    padding:20px;
+    color:white;
+    font-size: 50;
+}
+input:focus{
+    border:none;
+    outline:none;
+}
+

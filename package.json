@@ -1,5 +1,5 @@
 {
-  "homePage":"https://brightmuk.github.io/dojo-blog",
+  "homePage": "https://brightmuk.github.io/dojo-blog",
   "name": "dojo-blog",
   "version": "0.1.0",
   "private": true,
@@ -8,7 +8,9 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
     "react": "^17.0.1",
+    "react-async": "^10.0.1",
     "react-dom": "^17.0.1",
+    "react-horizontal-scrolling-menu": "^0.7.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
