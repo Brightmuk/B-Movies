@@ -6,8 +6,16 @@
     display: flex;
 }
 
+
+.loader-container {
+    position: absolute;
+    top:145px;
+    left:68%;
+    /* top: calc(50% - 10px); */
+} 
+
 input{
-    width:60%;
+    width: 100%;
     background-color: rgba(47, 46, 46, 1);
     border-radius:50px;
     border:none;
@@ -15,6 +23,7 @@ input{
     padding:20px;
     color:white;
     font-size: 50;
+    box-sizing: border-box;
 }
 input:focus{
     border:none;

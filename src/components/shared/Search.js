@@ -2,6 +2,7 @@
 import React from 'react';
 import './Search.css';
 import Autocomplete from './Autocomplete';     
+import Loader from './Loader';
 
 class SearchBar extends React.Component{
 
@@ -36,7 +37,12 @@ class SearchBar extends React.Component{
         return (
 
         <form autoComplete="off" class="search-bar">
+           
           <input value={this.state.value} onChange={this.handleChange} type="text" id="search" name="Search" placeholder="Search"></input>
+          {/* <div className="loader-container">
+              <Loader/>
+          </div> */}
+         
         </form>
         );
       }

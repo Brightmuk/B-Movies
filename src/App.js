@@ -3,6 +3,9 @@ import HorizontalList from './components/main/HorizontalList';
 import './App.css';
 import Nav from './components/shared/Nav';
 import SearchBar from './components/shared/Search';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Loader from './components/shared/Loader';
+import SingleMovie from './components/main/SingleMovie';
 
 const apiKey = "a307e8eddfmsh2a33e3d638138dcp17c32cjsne44e5a3808fc";
 const apiHost = "imdb-internet-movie-database-unofficial.p.rapidapi.com";
@@ -67,16 +70,19 @@ class App extends Component {
     render() {
      
         return (
-            
+            <Router>
+
             <div className ="page-container">
-                <div class="page-content">
+            <Switch>
+            <Route exact path="/">
+            <div class="page-content">
                 <div class="nav-logo text-center" >B Movies</div>
                 <SearchBar searchCallback = {this.handleCallback}/>
                 { this.state.searchTerm.length>1? <div class="heading ">RESULTS FOR "{this.state.searchTerm}"</div>:<div class="heading">POPULAR SEARCHES</div>}
                {this.state.searchTerm.length>1?
                <HorizontalList movies={this.state.movies} />
                 :
-                <div>Popular searches</div>
+              <div></div>
                 // <Async promiseFn={searchMovie(this.searchTerm)}>
                 // {({ data, err, isLoading }) => {
                 //     if(isLoading) return <div>Loading...</div>
@@ -88,7 +94,23 @@ class App extends Component {
                 }
                
                 </div>
+            </Route>
+            <Route  path="/movie/:movieId">
+                <div>
+                    <Nav/>
+                    <SingleMovie/>
+                </div>
+               
+            </Route>
+
+            <Route path="*">
+                <div>Page not found</div>
+                {/* <NotFound/> */}
+            </Route>
+            </Switch>
+
             </div>
+            </Router>
         )
     }
 

@@ -1,0 +1,58 @@
+.single-movie{
+    color:white;
+    padding:50px 40px;
+}
+.page-nav{
+    display:flex;
+   justify-content: baseline;
+}
+
+.path, .path-name, .path-link{
+    font-size: 15;
+    padding-right:3px;
+    color:rgba(255, 246, 214, 1)
+}
+.path-link:hover{
+    border-bottom: none;
+    color:rgba(255, 246, 214, 1);
+
+}
+.path{
+    color:rgb(100, 96, 82)
+}
+.path-name{
+    color:rgb(100, 96, 82)
+}
+.movie{
+    display: flex;
+    justify-content: center;
+}
+.movie-details{
+    width:80%;
+}
+.movie-details .movie-title{
+    color: rgba(255, 246, 214, 1);
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+.movie-details .movie-plot{
+  
+    min-height: 50vh;
+    color: rgba(255, 246, 214, 1);
+    font-size: 20px;
+    font-weight: 100;
+}
+.movie-poster{
+    width:50%
+}
+.img{
+  width:auto;
+  height:70vh
+}
+.movie-footer{
+    margin-top:20px;
+  
+    display:flex;
+    justify-content: space-between;
+}
