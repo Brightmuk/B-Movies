@@ -72,7 +72,7 @@ class App extends Component {
                 <div class="page-content">
                 <div class="nav-logo text-center" >B Movies</div>
                 <SearchBar searchCallback = {this.handleCallback}/>
-                { this.state.searchTerm.length>1? <div class="heading">RESULTS FOR "{this.state.searchTerm}"</div>:<div class="heading">POPULAR SEARCHES</div>}
+                { this.state.searchTerm.length>1? <div class="heading ">RESULTS FOR "{this.state.searchTerm}"</div>:<div class="heading">POPULAR SEARCHES</div>}
                {this.state.searchTerm.length>1?
                <HorizontalList movies={this.state.movies} />
                 :

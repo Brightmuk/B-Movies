@@ -14,7 +14,7 @@ class MovieCard extends React.Component {
      render(){
         return <div className="movie-card" >
             <div class="card-image">
-                <img width="150" class="tile-image" src={this.movie.image}></img>
+                <img width="200" className="tile-image" src={this.movie.image}></img>
             </div>
             <div class="card-content">
                 {this.movie.title}
