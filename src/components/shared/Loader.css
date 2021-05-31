@@ -1,12 +1,14 @@
 .lds-spinner {
     color: official;
+    margin-right:15px;
+    margin-top:10px;
     display: inline-block;
-    position: relative;
+    position: absolute;
     width: 50px;
     height: 50px;
   }
   .lds-spinner div {
-    transform-origin: 30px 30px;
+    transform-origin: 40px 20px;
     animation: lds-spinner 1.2s linear infinite;
   }
   .lds-spinner div:after {
@@ -15,10 +17,10 @@
     position: absolute;
     top: 3px;
     left: 37px;
-    width: 6px;
-    height: 18px;
+    width: 3px;
+    height: 9px;
     border-radius: 20%;
-    background: rgba(255, 246, 214, 1);
+    background: rgb(133, 132, 132);
   }
   .lds-spinner div:nth-child(1) {
     transform: rotate(0deg);
