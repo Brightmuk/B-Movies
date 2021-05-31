@@ -31,10 +31,19 @@ const SingleMovie = () => {
             <div className = "movie-details">
                 <div className= "movie-title">{movie.title}</div>
                 <div className="movie-plot">{movie.plot}</div>
+                {movie.cast.length>1?
+                                <div className="movie-actors">
+                                <span className="leading">TOP CHARACTERS</span>
+                                <div className="actor"><b>{movie.cast[0].character}</b> - {movie.cast[0].actor}</div>
+                                <div className="actor"><b>{movie.cast[1].character}</b> - {movie.cast[1].actor}</div>
+                                <div className="actor"><b>{movie.cast[3].character}</b> - {movie.cast[2].actor}</div>
+                            </div>:<div></div>
+                }
+
                 <div className="movie-footer">
-                    <div classname="movie-year">{movie.year}</div>
-                    <div className="movie-rating">{movie.rating}</div>
-                </div>
+                <div className="movie-length"><span className="leading">LENGTH</span> {movie.length}</div>
+                    <div classname="movie-year"><sapn className="leading">YEAR</sapn> {movie.year}</div>
+                    <div className="movie-rating"><span className="leading">RATING</span> {movie.rating}</div></div>
             </div>  
             </div>
             :<Loader/>

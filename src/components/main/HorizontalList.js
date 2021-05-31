@@ -19,7 +19,7 @@ class HorizontalList extends React.Component {
       }
 
     render(){
-        const movies = this.movieList;
+        const movies = this.movieList??[];
         return <div class="horizontal-container">
             {movies.map((movie, index)=>(
              <MovieCard movie={movie} key={movie.id} index={index} />

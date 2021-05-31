@@ -1,8 +1,5 @@
 import {useState,useEffect} from 'react'; 
 
-const apiKey = "a307e8eddfmsh2a33e3d638138dcp17c32cjsne44e5a3808fc";
-const apiHost = "imdb-internet-movie-database-unofficial.p.rapidapi.com";
-
 
 const useFetch = (url)=>{
 
@@ -20,8 +17,8 @@ const useFetch = (url)=>{
                     signal:abortCtrl.signal,
                     method:'GET',
                     headers:{
-                        "x-rapidapi-key":apiKey,
-                        "x-rapidapi-host": apiHost,
+                        "x-rapidapi-key":process.env.REACT_APP_RAPID_API_KEY,
+                        "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
                         "useQueryString": true
                     }
                  }

@@ -7,8 +7,6 @@ import Loader from '../shared/Loader';
 import SingleMovie from '../main/SingleMovie';
 import SearchBar from '../shared/Search';
 
-const apiKey = "a307e8eddfmsh2a33e3d638138dcp17c32cjsne44e5a3808fc";
-const apiHost = "imdb-internet-movie-database-unofficial.p.rapidapi.com";
 
 class Home extends Component {
 
@@ -25,8 +23,8 @@ class Home extends Component {
         {
             method:'GET',
             headers:{
-                "x-rapidapi-key":apiKey,
-                "x-rapidapi-host": apiHost,
+                "x-rapidapi-key":process.env.REACT_APP_RAPID_API_KEY,
+                "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
                 "useQueryString": true
             }
          }
