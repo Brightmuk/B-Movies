@@ -1,7 +1,6 @@
 
 import React from 'react';
-import './Search.css';
-import Autocomplete from './Autocomplete';     
+import './Search.css';    
 import Loader from './Loader';
 
 class SearchBar extends React.Component{
@@ -36,14 +35,13 @@ class SearchBar extends React.Component{
            
       }
     UNSAFE_componentWillReceiveProps(props){
-        console.log('new val'+props.loading)
        this.setState({
            loading: false
        })
     }
 
     render() { 
-      console.log(this.state.loading);
+     
         return (
 
         <form autoComplete="off" className="search-bar">

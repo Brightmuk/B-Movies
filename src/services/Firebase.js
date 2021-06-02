@@ -1,22 +1,43 @@
+import db from ".."
 
-var firebaseConfig = {
-    apiKey: "AIzaSyCdctidXhJAfeoZHweafL_ekUfHJHlFF8c",
-    authDomain: "fl-fire.firebaseapp.com",
-    databaseURL: "https://fl-fire.firebaseio.com",
-    projectId: "fl-fire",
-    storageBucket: "fl-fire.appspot.com",
-    messagingSenderId: "172124361730",
-    appId: "1:172124361730:web:293bef62c9e1f14344831b"
-};
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+export default class FirebaseService {
 
-class FirebaseService {
+    static async getPopularSearches(){
+        try{
+            const response=db.collection('popular-searches')
+            .orderBy('date','desc')
+            .limit(3)
+    
+            const data = await response.get();
+            return data.docs.map((doc)=>{
+                return doc.data()
+            });
+        }catch(e){
+            console.log(e);
+            return []
+        }
 
-    getPopularSearches(){
-        
+    }
+
+    static async newPopularSearch(movie){
+        try{
+            var now = Date.now();
+            return db.collection("popular-searches")
+            .doc(movie.id).set({
+               id:movie.id,
+               image:movie.poster,
+               title: movie.title,
+               date: Date(now)
+            }).catch((e)=>{
+                console.log(e)
+            })
+        }catch(e){
+            console.log(e)
+            
+        }
     }
 
 }
+
 

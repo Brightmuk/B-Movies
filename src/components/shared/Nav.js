@@ -1,12 +1,11 @@
 import React from 'react'
-import Search from './Search'
 import './Nav.css';
 
 const Nav= ()=>{
 
     return (
-        <div class="navbar">
-            <div class="nav-logo">B Movies</div>
+        <div className="navbar">
+            <div className="nav-logo">B Movies</div>
            
             <div></div>
         </div>

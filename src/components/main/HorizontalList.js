@@ -4,28 +4,15 @@ import MovieCard from './MovieCard';
 
 
 
-class HorizontalList extends React.Component {
+const HorizontalList = ({movieList})=>{
 
-    constructor(props) {
-        super(props);
-        this.movieList = props.movies;
-      }
-      UNSAFE_componentWillReceiveProps(props){
-        
-        this.movieList = props.movies;
-      }
-      onSelect = key => {
-       
-      }
-
-    render(){
-        const movies = this.movieList??[];
-        return <div class="horizontal-container">
-            {movies.map((movie, index)=>(
-             <MovieCard movie={movie} key={movie.id} index={index} />
-            ))}
-        </div>
-    }
+  const movies = movieList??[];   
+      return <div className="horizontal-container">
+          {movies.map((movie)=>(
+          
+            <MovieCard movie={movie} key={movie.id}/>
+          ))}
+      </div>
 
 };
 

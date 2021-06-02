@@ -1,24 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import HorizontalList from '../main/HorizontalList';
 import './Home.css';
-import Nav from '../shared/Nav';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import Loader from '../shared/Loader';
-import SingleMovie from '../main/SingleMovie';
 import SearchBar from '../shared/Search';
+import {useState} from 'react';
+import useFetch from '../../services/UseFetch';
 
+const Home = (props)=> {
+    let [searchTerm, setSearchTerm] = useState('');
+    let [movies, setMovies] = useState([])
+    let [loading, setLoading] = useState(false);
 
-class Home extends Component {
+        // const popularSearches = []
+   const { data: popularSearches, error, isPending} = useFetch(null,true)
 
-    state = {
-        movies: [],
-        selected: '',
-        searchTerm:'',
-        loading:false
-    }
-
-    searchMovie = (searchTerm)=>{
-        this.setState({loading:true});
+    const searchMovie = (searchTerm)=>{
+        
+        setLoading(true);
         fetch(`https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/${searchTerm}`,
         {
             method:'GET',
@@ -32,38 +29,36 @@ class Home extends Component {
         .then(res => res.json())
         .then((data) => {
             
-            this.setState({movies: data.titles, loading:false})
+            setLoading(false);
+            setMovies(data.titles??[])
         })
         .catch(console.log)
-        this.setState({loading:false})
+        setLoading(false);
             return null;
 
     }
 
-    handleCallback = (term) =>{
-      this.setState({searchTerm: term})
-      this.searchMovie(term)
-   
+    const handleCallback = (term) =>{
+        setSearchTerm(term);
+        if(term.length>1){
+            searchMovie(term)
+        } 
     }
 
-    render() {
-     
+        const movieList = searchTerm.length>1? movies.slice(0,3):popularSearches
         return (
-            <div class="page-content">
-                <div class="nav-logo text-center" >B Movies</div>
-                <SearchBar searchCallback = {this.handleCallback} loading={this.state.loading}/>
-                { this.state.searchTerm.length>1? <div class="heading ">RESULTS FOR "{this.state.searchTerm}"</div>:<div class="heading">POPULAR SEARCHES</div>}
-               {this.state.searchTerm.length>1?
-               <HorizontalList movies={this.state.movies} />
-                :
-              <div >
+            <div className="page-content">
+                <div className="nav-logo text-center" >B Movies</div>
+              
+                <SearchBar searchCallback = {handleCallback} loading={loading}/>
+                { searchTerm.length>1? <div className="heading ">RESULTS FOR "{searchTerm}"</div>:<div className="heading">POPULAR SEARCHES</div>}
+            
+               <HorizontalList movieList={movieList} />
 
-                  </div>
-                }
                 </div>
 
         )
-    }
+    
 }
 
 export default Home;

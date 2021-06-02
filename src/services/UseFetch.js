@@ -1,17 +1,34 @@
 import {useState,useEffect} from 'react'; 
+import FirebaseService from './Firebase';
 
 
-const useFetch = (url)=>{
+const useFetch = (url, firebaseFetch=false)=>{
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [isPending,setIsPending] = useState(true);
+    const [isPending, setIsPending] = useState(true);
 
     useEffect(()=>{
-
+      
         const abortCtrl = new AbortController();
-
-        setTimeout(() => {
+        if(firebaseFetch){
+         
+            FirebaseService.getPopularSearches()
+            .then((data)=>{
+                setData(data);
+                setIsPending(false);
+                setError(null);
+            })
+            .catch(err=>{
+                if(err.name==="AbortError"){
+                    console.log('Aborted fetch');
+                }else{
+                    setIsPending(false);
+                    setError(err.message);
+                }
+            })
+        }else{
+           
             fetch(url,
                 {
                     signal:abortCtrl.signal,
@@ -24,10 +41,12 @@ const useFetch = (url)=>{
                  }
                 )
             .then(res=>{
+               
                 if(!res.ok){
                     throw Error("Unable to fetch data")
                 }
                 return res.json()
+               
                 .then(data=>{
                     setData(data);
                     setIsPending(false);
@@ -42,9 +61,10 @@ const useFetch = (url)=>{
                     }
                 })
             })
-        }, 1000);
+        }
+
         return () =>abortCtrl.abort();
-    },[url]);
+    },[url,firebaseFetch]);
 
     return {data, isPending, error}
 };

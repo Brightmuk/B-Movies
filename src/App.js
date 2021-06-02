@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
-import HorizontalList from './components/main/HorizontalList';
 import './App.css';
 import Nav from './components/shared/Nav';
-import SearchBar from './components/shared/Search';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import Loader from './components/shared/Loader';
 import SingleMovie from './components/main/SingleMovie';
 import Home from './components/main/Home';
-
+import firebase from "firebase";
 
 class App extends Component {
-
+  
 
     render() {
-     
+       
         return (
             <Router>
 
