@@ -5,7 +5,7 @@ import Loader from '../shared/Loader';
 import './SingleMovie.css';
 import FirebaseService from '../../services/Firebase';
 import {useHistory } from 'react-router-dom';
-
+import Shimmer from "react-shimmer-effect";
 
 const SingleMovie = () => {
 
@@ -30,8 +30,8 @@ const SingleMovie = () => {
             </div>
 
             <br/>
-            {error && <div>{error}</div>}
-            {movie!=null?
+            {error && <div className="movie-plot">{error}</div>}
+            {!isPending?
             <div className="movie">
                 <div className = "movie-poster">
                     <img className="img" src={movie.poster}></img>
@@ -58,8 +58,32 @@ const SingleMovie = () => {
                     <div className="movie-rating"><span className="leading">RATING</span> {movie.rating}</div></div>
             </div>  
             </div>
-            :<Loader/>
-            }
+            :
+            <div className="movie">
+            <div className = "movie-poster shimmer">
+                
+            </div>
+        <div className = "movie-details ">
+            <div className = "movie-header shimmer">
+            <div className= "movie-title "></div>
+            <div className= "movie-trailer" onClick={newPopularSearch}><a target="blank" ></a></div>
+            </div>
+          
+            <div className="movie-plot shimmer"></div>
+                <div className="movie-actors shimmer">
+                <span className="leading"></span>
+                <div className="actor shimmer"></div>
+                <div className="actor shimmer"></div>
+                <div className="actor shimmer"></div>
+            </div>
+            
+            <div className="movie-footer shimmer">
+            <div className="movie-length"><span className="leading"></span> </div>
+                <div className="movie-year"><span className="leading"></span></div>
+                <div className="movie-rating"><span className="leading"></span></div></div>
+        </div>  
+        </div>
+        }
 
         </div>
      );

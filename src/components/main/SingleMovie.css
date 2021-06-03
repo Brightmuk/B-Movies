@@ -25,9 +25,21 @@
     color:rgb(100, 96, 82)
 }
 .movie{
+    
     display: flex;
     justify-content: center;
+    animation: fade-in;
+    animation-duration: 2s ;
 }
+@keyframes fade-in{
+    from{
+     opacity:0
+    }
+    to{
+    opacity:1
+    }
+}
+
 .movie-details{
     width:80%;
     display:flex;
@@ -35,8 +47,8 @@
     justify-content: space-between;
 }
 .movie-header{
-   
     width: 100%;
+    height:10vh;
     display:flex;
     justify-content: space-between;
     align-items: baseline;
@@ -54,23 +66,52 @@ a:hover{
     min-height: 20vh;
     font-size: 20px;
     font-weight: 100;
-    margin-bottom:20px
+    
 }
 .movie-poster{
     width:50%;
     margin-right:10px;
 }
+.movie-plot{
+    width: 100%;
+    height:30vh
+}
 .movie-actors{
     margin-bottom:20px
+}
+.movie-footer{
+    margin-top:20px;
+    height: 8vh;
+    display:flex;
+    justify-content: space-between;
+}
+.leading{
+    color:rgb(77, 74, 64);
+    margin-right:10px
 }
 .actor{
     color: rgb(209, 201, 172);
     font-size: 17px;
     font-weight: 100;
+
 }
 .img{
   width:auto;
   height:70vh
+}
+
+.shimmer{
+   
+    animation: shimmer  infinite alternate-reverse;
+    animation-duration: 1s;
+}
+@keyframes shimmer{
+    from{
+        background-color: rgb(33, 34, 33);
+    }
+    to{
+        background-color: rgb(29, 29, 29);
+    }
 }
 
 @media screen and (max-width: 700px){
@@ -80,14 +121,4 @@ a:hover{
     .movie-details .movie-plot{
         min-height:30vh
     }
-}
-.movie-footer{
-    margin-top:20px;
-  
-    display:flex;
-    justify-content: space-between;
-}
-.leading{
-    color:rgb(77, 74, 64);
-    margin-right:10px
 }
