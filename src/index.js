@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import firebase from "firebase";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 var firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
@@ -14,15 +15,16 @@ var firebaseConfig = {
     messagingSenderId: process.env.REACT_APP_MESSAGINGSENDER_ID,
     appId: process.env.REACT_APP_FIREBASEAPP_Id
 };
+const app = initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
-const db=firebase.firestore();
+const db = getFirestore(app);
 
 export default db;
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+const root= ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
+)
 serviceWorker.unregister();

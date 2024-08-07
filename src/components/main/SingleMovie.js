@@ -4,21 +4,21 @@ import useFetch from '../../services/UseFetch';
 import Loader from '../shared/Loader';
 import './SingleMovie.css';
 import FirebaseService from '../../services/Firebase';
-import {useHistory } from 'react-router-dom';
-import Shimmer from "react-shimmer-effect";
+import {useNavigate } from 'react-router-dom';
+
 
 const SingleMovie = () => {
 
     const {movieId}= useParams()
     const { data:movie, error, isPending} = useFetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+movieId)
-    const history = useHistory()
+    const navigate = useNavigate()
     
     const newPopularSearch = async()=>{
         FirebaseService.newPopularSearch(movie)
     }
     const goHome=()=>{
        
-        history.goBack()
+        navigate('/')
     }
    
     return ( 
