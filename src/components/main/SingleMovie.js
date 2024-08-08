@@ -20,7 +20,7 @@ const SingleMovie = () => {
         getPlot();
         getCast();
     }, [])
-    const getMovie =  () => {
+    const getMovie = () => {
 
         fetch("https://imdb8.p.rapidapi.com/title/v2/get-details?tconst=" + movieId,
             {
@@ -35,14 +35,14 @@ const SingleMovie = () => {
             .then(res => res.json())
             .then((data) => {
                 console.log(data)
-                
+
                 setMovie(data['data']['title'])
             })
             .catch(console.log)
         // setLoading(false);
         return null;
     }
-    const getPlot =  () => {
+    const getPlot = () => {
 
         fetch("https://imdb8.p.rapidapi.com/title/v2/get-plot?tconst=" + movieId,
             {
@@ -57,14 +57,14 @@ const SingleMovie = () => {
             .then(res => res.json())
             .then((data) => {
                 console.log(data)
-                
+
                 setPlot(data.data.title.plot.plotText.plainText)
             })
             .catch(console.log)
 
         return null;
     }
-    const getCast =  () => {
+    const getCast = () => {
 
         fetch("https://imdb8.p.rapidapi.com/title/v2/get-top-cast-and-crew?tconst=" + movieId,
             {
@@ -106,7 +106,7 @@ const SingleMovie = () => {
 
             <br />
 
-            {movie!=null&&plot!=null ?
+            {movie != null && plot != null ?
                 <div className="movie">
                     <div className="movie-poster">
                         <img className="img" src={movie.primaryImage.url}></img>
@@ -118,17 +118,20 @@ const SingleMovie = () => {
                         </div>
 
                         <div className="movie-plot">{plot}</div>
-                {cast.length>1?
-                                <div className="movie-actors">
+                        {cast.length > 1 ?
+                            <div className="movie-actors">
                                 <span className="leading">TOP CHARACTERS</span>
-                               
-                                {cast.map((character)=>(
-                                     <div className="actor"><b>{character.node.characters[0].name}</b> - {character.node.name.nameText.text}</div>
+
+                                {cast.map((character) => (
+
+                                    <div key={cast.indexOf(character)} className="actor"><b>{character.node.characters[0].name}</b> - {character.node.name.nameText.text}</div>
+
+
                                 ))}
-                               
-                                
-                            </div>:<div></div>
-                }
+
+
+                            </div> : <div></div>
+                        }
 
                         <div className="movie-footer">
                             <div className="movie-length"><span className="leading">LANGUAGE</span> {movie.spokenLanguages.spokenLanguages[0].text}</div>
