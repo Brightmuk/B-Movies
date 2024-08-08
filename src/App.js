@@ -22,7 +22,6 @@ class App extends Component {
                     <SingleMovie/>
                 </div>}/>
               
-
             <Route path="*" element={<div className= "text-center heading">Page not found.
                 <Link to="/">
                  Go  home

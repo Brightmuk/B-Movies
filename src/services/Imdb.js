@@ -1,14 +1,10 @@
-const apiKey = "a307e8eddfmsh2a33e3d638138dcp17c32cjsne44e5a3808fc";
-const apiHost = "imdb-internet-movie-database-unofficial.p.rapidapi.com";
-
-
 const searchMovie = (searchTerm)=>{
-    fetch(`https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/${searchTerm}`,
+    fetch(`https://imdb8.p.rapidapi.com/v2/search?searchTerm=${searchTerm}`,
     {
         method:'GET',
         headers:{
-            "x-rapidapi-key":apiKey,
-            "x-rapidapi-host": apiHost,
+            "x-rapidapi-key":process.env.REACT_APP_RAPID_API_KEY,
+            "x-rapidapi-host": process.env.REACT_APP_RAPID_API_HOST,
             "useQueryString": true
         }
     }

@@ -14,9 +14,9 @@ const Home = (props)=> {
    const { data: popularSearches, error, isPending} = useFetch(null,true)
 
     const searchMovie = (searchTerm)=>{
-        
+        console.log(process.env.REACT_APP_RAPID_API_KEY)
         setLoading(true);
-        fetch(`https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/${searchTerm}`,
+        fetch(`https://imdb8.p.rapidapi.com/v2/search?searchTerm=${searchTerm}`,
         {
             method:'GET',
             headers:{

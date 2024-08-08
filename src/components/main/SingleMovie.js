@@ -10,7 +10,7 @@ import {useNavigate } from 'react-router-dom';
 const SingleMovie = () => {
 
     const {movieId}= useParams()
-    const { data:movie, error, isPending} = useFetch("https://imdb-internet-movie-database-unofficial.p.rapidapi.com/film/"+movieId)
+    const { data:movie, error, isPending} = useFetch("https://imdb8.p.rapidapi.com/title/v2/get-details?tconst="+movieId)
     const navigate = useNavigate()
     
     const newPopularSearch = async()=>{
