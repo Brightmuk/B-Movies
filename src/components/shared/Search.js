@@ -24,6 +24,7 @@ class SearchBar extends React.Component{
         this.props.searchCallback(this.state.value);
         this.setState({loading:true});
     }
+    
 
     handleChange(event) {
         clearTimeout(this.state.typingTimer);
@@ -34,14 +35,10 @@ class SearchBar extends React.Component{
             })
            
       }
-    UNSAFE_componentWillReceiveProps(props){
-       this.setState({
-           loading: false
-       })
-    }
+ 
 
     render() { 
-     
+        
         return (
 
         <form autoComplete="off" className="search-bar">
