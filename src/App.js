@@ -14,16 +14,16 @@ class App extends Component {
             <Router>
             <div className ="page-container">
             <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="/B-movies" element={<Home/>}/>
                 
             
-            <Route  path="/movie/:movieId" element={<div>
+            <Route  path="/B-movies/movie/:movieId" element={<div>
                     <Nav/>
                     <SingleMovie/>
                 </div>}/>
               
             <Route path="*" element={<div className= "text-center heading">Page not found.
-                <Link to="/">
+                <Link to="/B-movies">
                  Go  home
                 </Link></div>}/>
             </Routes>
